@@ -10,5 +10,11 @@ public class MakeChange {
 		System.out.print("How much money was tendered by the customer? ");
 		tendered = keyboard.nextDouble();
 
+		if (amount > tendered) {
+			System.out.println("Amount tendered is less than the price of the item!");
+		} else if (amount == tendered) {
+			System.out.print("Amount tendered is exactly the same as the price of the item. No change needed!");
+		}
+
 	}
 }

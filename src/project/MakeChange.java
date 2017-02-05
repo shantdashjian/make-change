@@ -1,4 +1,5 @@
 package project;
+
 import java.util.Scanner;
 
 public class MakeChange {
@@ -14,33 +15,33 @@ public class MakeChange {
 		// If no parameters were sent via command line
 		else {
 			System.out.print("Please enter the price of the item: ");
-	        String line = keyboard.nextLine ();
-	        // This loop catches the exception in case anything but a number was entered
+			String line = keyboard.nextLine();
+			// This loop catches the exception in case anything but a number was
+			// entered
 			while (true) {
-	               try {
-	            	   amount = Double.parseDouble(line);
-	                    break;
-	                }
-	                catch (NumberFormatException e) {
+				try {
+					amount = Double.parseDouble(line);
+					break;
+				} catch (NumberFormatException e) {
 
-	                }
-	            System.out.print("Error! Please enter a number: ");
-	            line = keyboard.nextLine ();
-	        }
+				}
+				System.out.print("Error! Please enter a number: ");
+				line = keyboard.nextLine();
+			}
 			System.out.print("How much money was tendered by the customer? ");
-	        line = keyboard.nextLine ();
-	        // This loop also catches the exception in case anything but a number was entered
+			line = keyboard.nextLine();
+			// This loop also catches the exception in case anything but a
+			// number was entered
 			while (true) {
-	               try {
-	            	   tendered = Double.parseDouble(line);
-	                   break;
-	                }
-	                catch (NumberFormatException e) {
+				try {
+					tendered = Double.parseDouble(line);
+					break;
+				} catch (NumberFormatException e) {
 
-	                }
-	            System.out.print("Error! Please enter a number: ");
-	            line = keyboard.nextLine ();
-	        }
+				}
+				System.out.print("Error! Please enter a number: ");
+				line = keyboard.nextLine();
+			}
 		}
 
 		System.out.println(makeChange(amount, tendered));

@@ -6,13 +6,16 @@ public class MakeChange {
 		Scanner keyboard = new Scanner(System.in);
 		double amount;
 		double tendered;
+		// In case the program was sent 2 parameters in command line
 		if (args.length == 2) {
 			amount = Double.parseDouble(args[0]);
 			tendered = Double.parseDouble(args[1]);
-		} else {
+		}
+		// If no parameters were sent via command line
+		else {
 			System.out.print("Please enter the price of the item: ");
 	        String line = keyboard.nextLine ();
-
+	        // This loop catches the exception in case anything but a number was entered
 			while (true) {
 	               try {
 	            	   amount = Double.parseDouble(line);
@@ -26,7 +29,7 @@ public class MakeChange {
 	        }
 			System.out.print("How much money was tendered by the customer? ");
 	        line = keyboard.nextLine ();
-
+	        // This loop also catches the exception in case anything but a number was entered
 			while (true) {
 	               try {
 	            	   tendered = Double.parseDouble(line);
@@ -59,15 +62,15 @@ public class MakeChange {
 		int changeDimes = 0;
 		int changeNickels = 0;
 		int changePennies = 0;
+		// To give errors when amount in not less than tendered
 		if (amount > tendered) {
 			error = true;
 			errorMessage = "Amount tendered is less than the price of the item!";
-			//System.out.println(errorMessage);
 		} else if (amount == tendered) {
 			error = true;
 			errorMessage = "Amount tendered is exactly the same as the price of the item. No change needed!";
-			//System.out.print(errorMessage);
-		} else {
+		} // To calculate the change in various bills and coins using / and %
+		else {
 			change = tendered - amount;
 			changeBills = (int) change;
 			changeCoins = change - changeBills;
